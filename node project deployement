@@ -19,8 +19,14 @@ sudo apt install apache2
 /etc/apache2/sites-available
 sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/mynewsite.conf
 sudo systemctl restart apache2.service
+6. proper permission for folder
+cd /path/to/your/nuxt/app
+sudo find . -type f -exec chmod 644 {} \;
+sudo find . -type d -exec chmod 755 {} \;
+sudo chown -R ubuntu:ubuntu /path/to/your/nuxt/app
+If your Nuxt.js application requires writing to specific directories (e.g., for logging, caching, or uploads), you may need to grant write permissions (chmod 775 or chmod 777) to those directories.
 
-6. pm2 start worker
+7. pm2 start worker
 npm run build
 #for nuxt project .output is important
 you have to add start command in package.json in script object.
