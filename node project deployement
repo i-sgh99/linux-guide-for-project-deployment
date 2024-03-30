@@ -29,3 +29,5 @@ you have to add start command in package.json in script object.
 follow https://nuxt.com/docs/getting-started/deployment#pm2
 pm2 start --name "nuxtApp" -- run start
 
+pm2 startup
+
