@@ -26,5 +26,6 @@ npm run build
 you have to add start command in package.json in script object.
 
 "start": "node .output/server/index.mjs"
-
+follow https://nuxt.com/docs/getting-started/deployment#pm2
 pm2 start --name "nuxtApp" -- run start
+
