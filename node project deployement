@@ -33,9 +33,11 @@ you have to add start command in package.json in script object.
 
 "start": "node .output/server/index.mjs"
 follow https://nuxt.com/docs/getting-started/deployment#pm2
+
+for setting up env file 
 we have to add env variable to this file only because .env file will not work
 
-
+// ecosystem.config.cjs
 module.exports = {
   apps: [
     {
@@ -53,11 +55,9 @@ module.exports = {
 };
 
 
-pm2 start --name "nuxtApp" -- run start
-
 pm2 startup
 
-for setting up env file 
+-----------alternate of ecosystem.config.cjs ------
 https://medium.com/@toshvelaga/setting-env-variables-in-linux-4d21be793931
 export NODE_ENV="production"
 export PG_DATABASE=""
@@ -68,4 +68,5 @@ source .env
 # to remove 
 unset NODE_ENV
 # then 
+
 pm2 restart ecosystem.config.cjs --update-env
