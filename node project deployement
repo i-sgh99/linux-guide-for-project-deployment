@@ -33,6 +33,26 @@ you have to add start command in package.json in script object.
 
 "start": "node .output/server/index.mjs"
 follow https://nuxt.com/docs/getting-started/deployment#pm2
+we have to add env variable to this file only because .env file will not work
+
+
+module.exports = {
+  apps: [
+    {
+      name: "NuxtApp",
+      port: "3000",
+      exec_mode: "cluster",
+      instances: "max",
+      script: "./.output/server/index.mjs",
+      env: {
+        DATABASE_URL:
+          "mysql://fggggg:password@localhost:3306/db",
+      },
+    },
+  ],
+};
+
+
 pm2 start --name "nuxtApp" -- run start
 
 pm2 startup
